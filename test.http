@@ -1,0 +1,68 @@
+@local = http://localhost:3003
+
+# Add new user:
+POST {{local}}/api/users
+Content-Type: application/json
+
+{
+    "name": "ariel abadi",
+    "email": "ariel123@gmail.com",
+    "password": "12345678910",
+    "biz": true
+}
+
+
+### login user
+POST {{local}}/api/auth
+Content-Type: application/json
+
+{
+ "email": "ariel123@gmail.com",
+    "password": "12345678910"
+}
+
+
+### Get user by token
+GET {{local}}/api/users/me 
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0ZDgxMzhlNGZmZDY0ZGM2NzcyZjAiLCJiaXoiOnRydWUsImlhdCI6MTY1OTE2NDczOH0.J_7Sq7P0TknC1J4z2_fVC3b8Dc02e4zFJk16c0NUfCY
+
+
+### Add new card
+POST {{local}}/api/cards
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0ZDgxMzhlNGZmZDY0ZGM2NzcyZjAiLCJiaXoiOnRydWUsImlhdCI6MTY1OTE2NDczOH0.J_7Sq7P0TknC1J4z2_fVC3b8Dc02e4zFJk16c0NUfCY
+Content-Type: application/json
+
+{
+ "bizName": "Avigail`s shop",
+ "bizAddress": "tel aviv",
+ "bizPhone": "025856101",
+ "bizDescription": "Avigail`s shope is the best shop in all tel aviv, you should come"
+}
+
+
+### Get card by id
+GET {{local}}/api/cards/getById/62e4d8a88e4ffd64dc6772f5
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0ZDgxMzhlNGZmZDY0ZGM2NzcyZjAiLCJiaXoiOnRydWUsImlhdCI6MTY1OTE2NDczOH0.J_7Sq7P0TknC1J4z2_fVC3b8Dc02e4zFJk16c0NUfCY
+
+
+### Update card by id
+PUT {{local}}/api/cards/62e4d8a88e4ffd64dc6772f5
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0ZDgxMzhlNGZmZDY0ZGM2NzcyZjAiLCJiaXoiOnRydWUsImlhdCI6MTY1OTE2NDczOH0.J_7Sq7P0TknC1J4z2_fVC3b8Dc02e4zFJk16c0NUfCY
+Content-Type: application/json
+
+{
+ "bizName": "Ariel`s shop",
+  "bizAddress": "natania",
+ "bizPhone": "037611770",
+ "bizDescription": "Ariel`s shope is the best shop in all tel aviv, you should come"
+}
+
+
+### Delete card by id
+DELETE {{local}}/api/cards/62e4d8a88e4ffd64dc6772f5
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0ZDgxMzhlNGZmZDY0ZGM2NzcyZjAiLCJiaXoiOnRydWUsImlhdCI6MTY1OTE2NDczOH0.J_7Sq7P0TknC1J4z2_fVC3b8Dc02e4zFJk16c0NUfCY
+
+
+### Get user cards
+GET {{local}}/cards/myCards/62e4d8a88e4ffd64dc6772f5
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQwYTY3MjEyOTI5MDZlYTMyODlkOWEiLCJiaXoiOnRydWUsImlhdCI6MTY0MTA2NDA1M30.DEKPPTCF46VTxN8Ct9CQbwq7W6BdxAYYRQYT5boAheo
